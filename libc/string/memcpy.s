@@ -1,23 +1,24 @@
 	.text
+	.globl memcpy
 :memcpy
 	; same as memmove, but we don't care about forward/backward
 	; A: dst
 	; B: src
 	; C: n
 	; return: dst
-	ife c, 0
-	set pc, pop
+	IFE C, 0
+	SET PC, POP
 
-	set push, i
-	set push, j
-	set i, a
-	set j, b
-	add b, c
+	SET PUSH, I
+	SET PUSH, J
+	SET I, A
+	SET J, B
+	ADD B, C
 :.loop
-	sti [i], [j]
-	ifn b, j
-	set pc, .loop
+	STI [I], [J]
+	IFN B, J
+	SET PC, .loop
 
-	set j, pop
-	set i, pop
-	set pc, pop
+	SET J, POP
+	SET I, POP
+	SET PC, POP

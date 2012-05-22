@@ -1,38 +1,39 @@
 	.text
+	.globl memmove
 :memmove
 	; A: dst
 	; B: src
 	; C: n
 	; return: dst
-	ife c, 0
-	set pc, pop
+	IFE C, 0
+	SET PC, POP
 
-	set push, i
-	set push, j
-	set i, a
-	set j, b
+	SET PUSH, I
+	SET PUSH, J
+	SET I, A
+	SET J, B
 
-	ifg a, b
-	set pc, .backwards
-	add b, c
+	IFG A, B
+	SET PC, .backwards
+	ADD B, C
 :.loop
-	sti [i], [j]
-	ifn b, j
-	set pc, .loop
+	STI [I], [J]
+	IFN B, J
+	SET PC, .loop
 
-	set j, pop
-	set i, pop
-	set pc, pop
+	SET J, POP
+	SET I, POP
+	SET PC, POP
 
 :.backwards
 	; start from the end
-	add i, c
-	add j, c
+	ADD I, C
+	ADD J, C
 :.backwardsloop
-	std [i], [j]
-	ifn i, a
-	set pc, .backwardsloop
+	STD [I], [J]
+	IFN I, A
+	SET PC, .backwardsloop
 
-	set j, pop
-	set i, pop
-	set pc, pop
+	SET J, POP
+	SET I, POP
+	SET PC, POP

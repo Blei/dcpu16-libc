@@ -37,7 +37,7 @@
 
 //#include <avr/io.h>
 
-ATTRIBUTE_CLIB_SECTION
+//ATTRIBUTE_CLIB_SECTION
 void *
 realloc(void *ptr, size_t len)
 {
