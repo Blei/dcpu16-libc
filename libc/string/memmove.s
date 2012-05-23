@@ -27,11 +27,13 @@
 
 :.backwards
 	; start from the end
+	SUB C, 1
 	ADD I, C
 	ADD J, C
+	SUB B, 1
 :.backwardsloop
 	STD [I], [J]
-	IFN I, A
+	IFN J, B
 	SET PC, .backwardsloop
 
 	SET J, POP
