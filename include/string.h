@@ -124,7 +124,6 @@ extern size_t strcspn(const char *__s, const char *__reject) __ATTR_PURE__;
 extern char *strdup(const char *s1);
 extern size_t strlcat(char *, const char *, size_t);
 extern size_t strlcpy(char *, const char *, size_t);
-extern size_t strlen(const char *) __ATTR_PURE__;
 extern char *strlwr(char *);
 extern char *strncat(char *, const char *, size_t);
 extern int strncmp(const char *, const char *, size_t) __ATTR_PURE__;
@@ -145,6 +144,7 @@ extern char *strupr(char *);
 extern void *memcpy(void *, const void *, size_t);
 extern void *memmove(void *, const void *, size_t);
 extern void *memset(void *, int, size_t);
+extern size_t strlen(const char *);
 
 #ifdef __cplusplus
 }

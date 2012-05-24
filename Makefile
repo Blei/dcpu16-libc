@@ -1,11 +1,12 @@
-CFLAGS = -O -Wall -Iinclude -S
+CFLAGS = -O -Wall -Iinclude -S -target dcpu16
 
 S_SRCS = libc/string/memmove.s \
 	libc/string/memcpy.s
 
 C_SRCS = libc/stdlib/malloc.c \
 	libc/stdlib/realloc.c \
-	libc/string/memset.c
+	libc/string/string.c \
+	libc/dcpu.c
 
 S_PRODUCED = $(C_SRCS:.c=.s)
 
